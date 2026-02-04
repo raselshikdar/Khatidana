@@ -1,4 +1,4 @@
-# 🌿 Khatidana (খাঁটিদানা) - Premium Organic Food E-commerce
+# ![leaf logo](assets/leaf-emoji.gif) Khatidana (খাঁটিদানা) - Premium Organic Food E-commerce
 
 Khatidana is a modern, full-stack, premium e-commerce platform dedicated to providing pure and organic grains, honey, and oils to the Bangladeshi market. Built with a focus on health, purity, and a seamless user experience, Khatidana combines a high-end "Flipkart-inspired" interface with robust backend logic.
 
