@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard, Package, ShoppingCart, Users, Plus,
-  Edit, Trash2, Upload, X, Save, Eye, Search, Filter, Tag, FileText
+  Edit, Trash2, Upload, X, Save, Eye, Search, Filter, Tag, FileText, Leaf
 } from "lucide-react";
 import { OrderDetailModal } from "@/components/order/OrderDetailModal";
+import { AnalyticsCharts } from "@/components/admin/AnalyticsCharts";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -86,13 +87,13 @@ interface Analytics {
 }
 
 const categories = [
-  "Electronics", "Fashion", "Home & Living", "Beauty", "Sports", "Groceries", "Toys", "Automotive"
+  "Rice & Grains", "Pulses & Lentils", "Spices", "Oils & Ghee", "Honey & Sweeteners", "Dry Fruits", "Flour & Atta", "Organic Snacks"
 ];
 
 // Extended categories for enhanced product form
 const extendedCategories = [
-  "Electronics", "Fashion", "Home", "Beauty", "Grocery", 
-  "Home & Living", "Sports", "Toys", "Automotive"
+  "Rice & Grains", "Pulses & Lentils", "Spices", "Oils & Ghee", 
+  "Honey & Sweeteners", "Dry Fruits", "Flour & Atta", "Organic Snacks"
 ];
 
 const Admin = () => {
@@ -650,12 +651,13 @@ const Admin = () => {
       {/* Sidebar */}
       <aside className="fixed inset-y-0 left-0 z-50 w-64 bg-card border-r hidden lg:block">
         <div className="flex h-16 items-center gap-2 px-6 border-b">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg gradient-primary">
-            <span className="text-xl font-bold text-primary-foreground">H</span>
+          <div className="flex h-10 w-10 items-center justify-center rounded-full gradient-primary">
+            <Leaf className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="text-xl font-bold">
-            Haat<span className="text-primary">Bazar</span>
-          </span>
+          <div className="flex flex-col">
+            <span className="text-lg font-display font-bold">Khatidana</span>
+            <span className="text-xs text-accent font-bengali -mt-0.5">খাঁটিদানা</span>
+          </div>
         </div>
         <nav className="p-4 space-y-2">
           <Link to="/admin" className="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium">
@@ -708,6 +710,9 @@ const Admin = () => {
               </CardHeader>
             </Card>
           </div>
+
+          {/* Analytics Charts */}
+          <AnalyticsCharts orders={orders} />
 
           <Tabs defaultValue="products" className="space-y-6">
             <TabsList>

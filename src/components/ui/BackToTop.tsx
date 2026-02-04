@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,16 +28,24 @@ export const BackToTop = () => {
   };
 
   return (
-    <Button
-      onClick={scrollToTop}
-      className={cn(
-        "fixed bottom-24 right-6 z-40 h-12 w-12 rounded-full gradient-primary shadow-lg transition-all duration-300",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          className="fixed bottom-32 md:bottom-24 right-4 md:right-6 z-40"
+        >
+          <Button
+            onClick={scrollToTop}
+            className="h-12 w-12 rounded-full gradient-primary shadow-lg"
+            size="icon"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="h-5 w-5" />
+          </Button>
+        </motion.div>
       )}
-      size="icon"
-      aria-label="Back to top"
-    >
-      <ArrowUp className="h-5 w-5" />
-    </Button>
+    </AnimatePresence>
   );
 };

@@ -1,117 +1,117 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Bongshai Design System - Vibrant Professional E-commerce */
+/* Khatidana Design System - Premium Organic Foods & Grains */
 
 @layer base {
   :root {
-    /* Core brand colors */
-    --background: 0 0% 98%;
-    --foreground: 220 20% 10%;
+    /* Core brand colors - Organic theme */
+    --background: 60 20% 98%;
+    --foreground: 150 30% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 150 30% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover-foreground: 150 30% 10%;
 
-    /* Primary: Energetic Orange */
-    --primary: 24 95% 53%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary: Forest Green #1B4332 */
+    --primary: 153 43% 18%;
+    --primary-foreground: 60 20% 98%;
 
-    /* Secondary: Trust Blue */
-    --secondary: 217 91% 60%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary: Cream #F8F9FA */
+    --secondary: 210 17% 98%;
+    --secondary-foreground: 150 30% 10%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 60 10% 94%;
+    --muted-foreground: 150 10% 40%;
 
-    /* Accent: Warm Yellow for deals */
-    --accent: 45 93% 58%;
-    --accent-foreground: 220 20% 10%;
+    /* Accent: Gold #D4AF37 */
+    --accent: 44 70% 52%;
+    --accent-foreground: 150 30% 10%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 24 95% 53%;
+    --border: 60 10% 88%;
+    --input: 60 10% 88%;
+    --ring: 153 43% 18%;
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
 
     /* Custom tokens */
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 100%;
-    --flash-sale: 348 83% 47%;
+    --flash-sale: 0 84% 45%;
     --flash-sale-foreground: 0 0% 100%;
     --whatsapp: 142 70% 45%;
     --whatsapp-foreground: 0 0% 100%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(24 95% 53%) 0%, hsl(38 92% 50%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(24 95% 53%) 0%, hsl(348 83% 47%) 100%);
-    --gradient-flash: linear-gradient(135deg, hsl(348 83% 47%) 0%, hsl(24 95% 53%) 100%);
-    --gradient-trust: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(199 89% 48%) 100%);
+    /* Organic gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(153 43% 18%) 0%, hsl(153 40% 28%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(153 43% 18%) 0%, hsl(44 70% 52%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(44 70% 52%) 0%, hsl(38 75% 60%) 100%);
+    --gradient-organic: linear-gradient(135deg, hsl(80 50% 45%) 0%, hsl(153 43% 25%) 100%);
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(220 20% 10% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(220 20% 10% / 0.1), 0 2px 4px -2px hsl(220 20% 10% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(220 20% 10% / 0.1), 0 4px 6px -4px hsl(220 20% 10% / 0.1);
-    --shadow-card: 0 2px 8px -2px hsl(220 20% 10% / 0.08);
-    --shadow-card-hover: 0 8px 25px -5px hsl(24 95% 53% / 0.2);
+    /* Premium shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(150 30% 10% / 0.04);
+    --shadow-md: 0 4px 12px -2px hsl(150 30% 10% / 0.08);
+    --shadow-lg: 0 12px 32px -4px hsl(150 30% 10% / 0.12);
+    --shadow-card: 0 2px 12px -3px hsl(150 30% 10% / 0.06);
+    --shadow-card-hover: 0 12px 40px -8px hsl(153 43% 18% / 0.18);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 24 95% 53%;
+    --sidebar-background: 60 20% 98%;
+    --sidebar-foreground: 150 30% 20%;
+    --sidebar-primary: 153 43% 18%;
+    --sidebar-primary-foreground: 60 20% 98%;
+    --sidebar-accent: 60 10% 94%;
+    --sidebar-accent-foreground: 150 30% 10%;
+    --sidebar-border: 60 10% 88%;
+    --sidebar-ring: 153 43% 18%;
   }
 
   .dark {
-    --background: 220 20% 8%;
-    --foreground: 0 0% 98%;
+    --background: 150 25% 6%;
+    --foreground: 60 20% 96%;
 
-    --card: 220 20% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 150 20% 10%;
+    --card-foreground: 60 20% 96%;
 
-    --popover: 220 20% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 150 20% 10%;
+    --popover-foreground: 60 20% 96%;
 
-    --primary: 24 95% 53%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 153 50% 35%;
+    --primary-foreground: 60 20% 98%;
 
-    --secondary: 217 91% 60%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 150 15% 15%;
+    --secondary-foreground: 60 20% 96%;
 
-    --muted: 220 20% 18%;
-    --muted-foreground: 220 10% 65%;
+    --muted: 150 15% 15%;
+    --muted-foreground: 60 10% 60%;
 
-    --accent: 45 93% 58%;
-    --accent-foreground: 220 20% 10%;
+    --accent: 44 70% 52%;
+    --accent-foreground: 150 30% 10%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 24 95% 53%;
+    --border: 150 15% 18%;
+    --input: 150 15% 18%;
+    --ring: 153 50% 35%;
 
-    --sidebar-background: 220 20% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 24 95% 53%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 20% 15%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 220 20% 18%;
-    --sidebar-ring: 24 95% 53%;
+    --sidebar-background: 150 20% 8%;
+    --sidebar-foreground: 60 20% 96%;
+    --sidebar-primary: 153 50% 35%;
+    --sidebar-primary-foreground: 60 20% 98%;
+    --sidebar-accent: 150 15% 12%;
+    --sidebar-accent-foreground: 60 20% 96%;
+    --sidebar-border: 150 15% 15%;
+    --sidebar-ring: 153 50% 35%;
   }
 }
 
@@ -133,6 +133,11 @@
   .bengali {
     font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
   }
+
+  /* Premium display font */
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
 }
 
 @layer utilities {
@@ -144,12 +149,16 @@
     background: var(--gradient-hero);
   }
   
-  .gradient-flash {
-    background: var(--gradient-flash);
+  .gradient-gold {
+    background: var(--gradient-gold);
   }
   
-  .gradient-trust {
-    background: var(--gradient-trust);
+  .gradient-organic {
+    background: var(--gradient-organic);
+  }
+
+  .gradient-flash {
+    background: linear-gradient(135deg, hsl(var(--flash-sale)) 0%, hsl(var(--accent)) 100%);
   }
 
   .shadow-card {
@@ -158,6 +167,14 @@
 
   .shadow-card-hover {
     box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Premium text gradient */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(44 70% 52%) 0%, hsl(38 75% 65%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   /* Animations */
@@ -177,6 +194,16 @@
     50% { transform: scale(0.95); }
   }
 
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
   .animate-pulse-scale {
     animation: pulse-scale 2s ease-in-out infinite;
   }
@@ -189,6 +216,16 @@
     animation: cart-bounce 0.4s ease-out;
   }
 
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, hsl(var(--accent) / 0.3), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
   /* Scrollbar styling */
   .scrollbar-hide {
     -ms-overflow-style: none;
@@ -197,5 +234,24 @@
   
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Organic pattern overlay */
+  .organic-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231B4332' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+/* Hide mobile bottom nav on desktop, show on mobile */
+@media (min-width: 768px) {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+}
+
+/* Add bottom padding on mobile for bottom nav */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: 5rem;
   }
 }

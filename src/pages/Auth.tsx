@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
-import { Eye, EyeOff, ShoppingBag, Mail, Lock, User, Phone } from "lucide-react";
+import { Eye, EyeOff, Leaf, Mail, Lock, User, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -131,15 +131,16 @@ const Auth = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 via-background to-secondary/5 p-4">
-      <Card className="w-full max-w-md shadow-elegant">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 via-background to-accent/5 p-4 organic-pattern">
+      <Card className="w-full max-w-md shadow-lg border-border">
         <CardHeader className="text-center space-y-2">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl gradient-primary">
-            <ShoppingBag className="h-7 w-7 text-primary-foreground" />
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full gradient-primary">
+            <Leaf className="h-7 w-7 text-primary-foreground" />
           </div>
-          <CardTitle className="text-2xl font-bold">
-            Welcome to <span className="text-primary">Bongshai</span>
+          <CardTitle className="text-2xl font-display font-bold">
+            Welcome to <span className="text-primary">Khatidana</span>
           </CardTitle>
+          <p className="text-sm text-accent font-bengali">খাঁটিদানা - খাঁটি জৈব খাদ্য</p>
           <CardDescription>
             {activeTab === "login" 
               ? "Sign in to access your account" 

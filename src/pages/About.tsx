@@ -11,15 +11,16 @@ const About = () => {
       
       <main className="flex-1 container py-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            About <span className="text-primary">Bongshai</span>
+          <h1 className="text-3xl md:text-4xl font-display font-bold mb-2 text-foreground">
+            About <span className="text-primary">Khatidana</span>
           </h1>
+          <p className="text-accent font-bengali mb-6">খাঁটিদানা সম্পর্কে</p>
           
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <p className="text-muted-foreground text-lg mb-8">
-              Bongshai (বংশাই) is Bangladesh's most trusted online shopping destination, bringing quality products 
-              at unbeatable prices directly to your doorstep. Named after the beautiful Bongshai River, 
-              we are committed to providing an exceptional shopping experience.
+              Khatidana (খাঁটিদানা) is Bangladesh's premium destination for organic foods and grains. 
+              We source the purest, most authentic organic products directly from trusted farmers 
+              and deliver them fresh to your doorstep.
             </p>
             
             <div className="grid md:grid-cols-2 gap-6 my-8">
