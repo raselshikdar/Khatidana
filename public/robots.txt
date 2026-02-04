@@ -1,17 +1,31 @@
-# Bongshai E-commerce SEO Optimization
+# Khatidana (খাঁটিদানা) - Organic Food E-commerce
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /profile
 Disallow: /checkout
+Disallow: /cart
+Disallow: /auth
+Disallow: /payment-*
 
+# Google
 User-agent: Googlebot
 Allow: /
 
+# Bing
 User-agent: Bingbot
 Allow: /
 
+# Facebook
 User-agent: facebookexternalhit
 Allow: /
 
-Sitemap: https://bongshai.lovable.app/sitemap.xml
+# WhatsApp
+User-agent: WhatsApp
+Allow: /
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+
+Sitemap: https://khatidana.lovable.app/sitemap.xml
