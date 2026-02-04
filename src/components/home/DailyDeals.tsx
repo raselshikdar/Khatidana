@@ -24,7 +24,7 @@ const fetchFeaturedProducts = async (): Promise<Product[]> => {
     .from("products")
     .select("id, name, price, original_price, images_url, rating, review_count, is_featured, created_at")
     .eq("is_featured", true)
-    .limit(4);
+    .limit(12);
 
   if (error) throw error;
   return data || [];
@@ -35,7 +35,7 @@ const fetchNewArrivals = async (): Promise<Product[]> => {
     .from("products")
     .select("id, name, price, original_price, images_url, rating, review_count, is_featured, created_at")
     .order("created_at", { ascending: false })
-    .limit(4);
+    .limit(12);
 
   if (error) throw error;
   return data || [];
@@ -59,8 +59,8 @@ export const DailyDeals = () => {
   });
 
   const renderSkeleton = () => (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-      {[...Array(4)].map((_, i) => (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+      {[...Array(12)].map((_, i) => (
         <div key={i} className="space-y-3">
           <Skeleton className="aspect-square rounded-xl" />
           <Skeleton className="h-4 w-3/4" />
@@ -111,7 +111,7 @@ export const DailyDeals = () => {
         </div>
 
         {loadingFeatured ? renderSkeleton() : featuredProducts.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
             {featuredProducts.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -168,7 +168,7 @@ export const DailyDeals = () => {
         </div>
 
         {loadingNew ? renderSkeleton() : newArrivals.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
             {newArrivals.map((product, index) => (
               <motion.div
                 key={product.id}

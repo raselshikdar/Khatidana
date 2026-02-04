@@ -28,7 +28,7 @@ const categories = [
     name: "Oils & Ghee", 
     nameBn: "তেল ও ঘি", 
     slug: "oils-ghee",
-    image: "https://images.unsplash.com/photo-1631164463540-c4f7e0c26eb6?w=200&h=200&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=200&h=200&fit=crop&q=80",
     color: "from-yellow-500/20 to-yellow-600/30"
   },
   { 
