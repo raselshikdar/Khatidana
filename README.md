@@ -3,7 +3,7 @@
 Khatidana is a modern, full-stack, premium e-commerce platform dedicated to providing pure and organic grains, honey, and oils to the Bangladeshi market. Built with a focus on health, purity, and a seamless user experience, Khatidana combines a high-end "Flipkart-inspired" interface with robust backend logic.
 
 ## 🚀 Live Demo
-**Website:** [https://khatidana.lovable.app](https://khatidana.lovable.app)
+**Website:** [https://khatidana.web.app](https://khatidana.web.app)
 
 ---
 
@@ -52,7 +52,7 @@ SSLCOMMERZ_STORE_PASSWORD=your_sandbox_password
 
  ```bash
  git clone https://github.com/raselshikdar/khatidana.git
- cd bongshai
+ cd khatidana
  ```
 
  * Install dependencies:
