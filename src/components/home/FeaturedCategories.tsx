@@ -7,56 +7,56 @@ const categories = [
     name: "Rice & Grains", 
     nameBn: "চাল ও শস্য", 
     slug: "rice-grains",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200&h=200&fit=crop",
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200&h=200&fit=crop&q=80",
     color: "from-amber-500/20 to-amber-600/30"
   },
   { 
     name: "Pulses", 
     nameBn: "ডাল", 
     slug: "pulses-lentils",
-    image: "https://images.unsplash.com/photo-1515543904323-310a06931a2b?w=200&h=200&fit=crop",
+    image: "https://images.unsplash.com/photo-1613758947307-f3b8f5d80711?w=200&h=200&fit=crop&q=80",
     color: "from-orange-500/20 to-orange-600/30"
   },
   { 
     name: "Spices", 
     nameBn: "মসলা", 
     slug: "spices",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=200&h=200&fit=crop",
+    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=200&h=200&fit=crop&q=80",
     color: "from-red-500/20 to-red-600/30"
   },
   { 
     name: "Oils & Ghee", 
     nameBn: "তেল ও ঘি", 
     slug: "oils-ghee",
-    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=200&h=200&fit=crop",
+    image: "https://images.unsplash.com/photo-1631164463540-c4f7e0c26eb6?w=200&h=200&fit=crop&q=80",
     color: "from-yellow-500/20 to-yellow-600/30"
   },
   { 
     name: "Honey", 
     nameBn: "মধু", 
     slug: "honey-sweeteners",
-    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=200&h=200&fit=crop",
+    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=200&h=200&fit=crop&q=80",
     color: "from-amber-400/20 to-amber-500/30"
   },
   { 
     name: "Dry Fruits", 
     nameBn: "শুকনো ফল", 
     slug: "dry-fruits",
-    image: "https://images.unsplash.com/photo-1596273501048-79a39e5a1c6a?w=200&h=200&fit=crop",
-    color: "from-brown-500/20 to-brown-600/30"
+    image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=200&h=200&fit=crop&q=80",
+    color: "from-orange-700/20 to-orange-800/30"
   },
   { 
     name: "Flour & Atta", 
     nameBn: "আটা", 
     slug: "flour-atta",
-    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=200&h=200&fit=crop",
+    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=200&h=200&fit=crop&q=80",
     color: "from-stone-400/20 to-stone-500/30"
   },
   { 
     name: "Snacks", 
     nameBn: "স্ন্যাকস", 
     slug: "organic-snacks",
-    image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=200&h=200&fit=crop",
+    image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=200&h=200&fit=crop&q=80",
     color: "from-green-500/20 to-green-600/30"
   },
 ];
