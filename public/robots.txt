@@ -1,0 +1,17 @@
+# Bongshai E-commerce SEO Optimization
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /profile
+Disallow: /checkout
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+Sitemap: https://bongshai.lovable.app/sitemap.xml
