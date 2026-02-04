@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, ShoppingCart, User, Menu, Heart, Leaf, ChevronDown, LogOut, Package, Shield } from "lucide-react";
+import { Search, ShoppingCart, User, Menu, Heart, Leaf, ChevronDown, LogOut, Package, Shield, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -16,7 +16,7 @@ import {
 import { useCart } from "@/hooks/useCart";
 import { useAuth } from "@/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const categories = [
   { name: "Rice & Grains", nameBn: "চাল ও শস্য", slug: "rice-grains" },
@@ -32,6 +32,7 @@ const categories = [
 export const Header = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const { getTotalItems } = useCart();
   const { user, profile, isAdmin, signOut } = useAuth();
   const totalItems = getTotalItems();
@@ -39,6 +40,15 @@ export const Header = () => {
   const handleSignOut = async () => {
     await signOut();
     navigate("/");
+  };
+
+  const handleMobileSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setMobileSearchOpen(false);
+      setSearchQuery("");
+    }
   };
 
   return (
@@ -127,7 +137,7 @@ export const Header = () => {
             </div>
           </Link>
 
-          {/* Search bar - Responsive */}
+          {/* Search bar - Desktop only */}
           <form 
             className="flex-1 min-w-0 max-w-2xl hidden md:flex items-center gap-2 mx-4"
             onSubmit={(e) => {
@@ -154,15 +164,24 @@ export const Header = () => {
 
           {/* Actions - Always visible on right */}
           <div className="flex items-center gap-1 shrink-0 ml-auto">
+            {/* Mobile Search Icon */}
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="md:hidden"
+              onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
+            >
+              {mobileSearchOpen ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
+            </Button>
+
             {/* Theme Toggle */}
             <ThemeToggle />
             
-            {/* Wishlist */}
+            {/* Wishlist - Now visible on both mobile and desktop */}
             <Button 
               variant="ghost" 
               size="icon" 
               onClick={() => navigate("/wishlist")}
-              className="hidden md:flex"
             >
               <Heart className="h-5 w-5" />
             </Button>
@@ -255,32 +274,40 @@ export const Header = () => {
           </div>
         </div>
         
-        {/* Mobile Search - Own row */}
-        <form 
-          className="md:hidden px-4 pb-3"
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (searchQuery.trim()) {
-              navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
-            }
-          }}
-        >
-          <div className="relative flex gap-2">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search organic products..."
-                className="pl-10 h-10 bg-muted/50 border-0 focus-visible:ring-primary rounded-full"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-            <Button type="submit" className="h-10 px-4 gradient-primary hover:opacity-90 transition-opacity shrink-0 rounded-full">
-              <Search className="h-4 w-4" />
-            </Button>
-          </div>
-        </form>
+        {/* Mobile Search - Expandable */}
+        <AnimatePresence>
+          {mobileSearchOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden overflow-hidden"
+            >
+              <form 
+                className="px-4 pb-3"
+                onSubmit={handleMobileSearch}
+              >
+                <div className="relative flex gap-2">
+                  <div className="relative flex-1">
+                    <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                      type="search"
+                      placeholder="Search organic products..."
+                      className="pl-10 h-10 bg-muted/50 border-0 focus-visible:ring-primary rounded-full"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      autoFocus
+                    />
+                  </div>
+                  <Button type="submit" className="h-10 px-4 gradient-primary hover:opacity-90 transition-opacity shrink-0 rounded-full">
+                    <Search className="h-4 w-4" />
+                  </Button>
+                </div>
+              </form>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Categories bar - Desktop */}

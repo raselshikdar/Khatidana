@@ -8,8 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { Layout } from "@/components/layout/Layout";
 import { OrderDetailModal } from "@/components/order/OrderDetailModal";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
@@ -139,14 +138,11 @@ const Profile = () => {
   const availableThanas = getThanas(district);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="container py-6">
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold">My Account</h1>
-          <p className="text-muted-foreground">{user?.email}</p>
-        </div>
+    <Layout className="container py-6">
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold">My Account</h1>
+        <p className="text-muted-foreground">{user?.email}</p>
+      </div>
 
         <Tabs defaultValue="profile" className="space-y-6">
           <TabsList className="grid w-full max-w-md grid-cols-2">
@@ -341,9 +337,6 @@ const Profile = () => {
             </Card>
           </TabsContent>
         </Tabs>
-      </main>
-
-      <Footer />
 
       {/* Order Detail Modal */}
       <OrderDetailModal
@@ -352,7 +345,7 @@ const Profile = () => {
         onClose={() => setSelectedOrderId(null)}
         isAdmin={false}
       />
-    </div>
+    </Layout>
   );
 };
 
