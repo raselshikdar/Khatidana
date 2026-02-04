@@ -23,28 +23,26 @@ interface Product {
 }
 
 const categoryDisplayNames: Record<string, { name: string; nameBn: string }> = {
-  "electronics": { name: "Electronics", nameBn: "ইলেকট্রনিক্স" },
-  "fashion": { name: "Fashion", nameBn: "ফ্যাশন" },
-  "home-living": { name: "Home & Living", nameBn: "হোম ও লিভিং" },
-  "beauty": { name: "Beauty", nameBn: "বিউটি" },
-  "sports": { name: "Sports", nameBn: "স্পোর্টস" },
-  "groceries": { name: "Groceries", nameBn: "মুদি সামগ্রী" },
-  "baby-toys": { name: "Baby & Toys", nameBn: "বেবি ও টয়" },
-  "toys": { name: "Toys", nameBn: "খেলনা" },
-  "automotive": { name: "Automotive", nameBn: "অটোমোটিভ" },
+  "rice-grains": { name: "Rice & Grains", nameBn: "চাল ও শস্য" },
+  "pulses-lentils": { name: "Pulses & Lentils", nameBn: "ডাল" },
+  "spices": { name: "Spices", nameBn: "মসলা" },
+  "oils-ghee": { name: "Oils & Ghee", nameBn: "তেল ও ঘি" },
+  "honey-sweeteners": { name: "Honey & Sweeteners", nameBn: "মধু" },
+  "dry-fruits": { name: "Dry Fruits", nameBn: "শুকনো ফল" },
+  "flour-atta": { name: "Flour & Atta", nameBn: "আটা" },
+  "organic-snacks": { name: "Organic Snacks", nameBn: "স্ন্যাকস" },
 };
 
 // Map slug to database category value
 const slugToCategoryMap: Record<string, string> = {
-  "electronics": "Electronics",
-  "fashion": "Fashion",
-  "home-living": "Home & Living",
-  "beauty": "Beauty",
-  "sports": "Sports",
-  "groceries": "Groceries",
-  "baby-toys": "Baby & Toys",
-  "toys": "Toys",
-  "automotive": "Automotive",
+  "rice-grains": "Rice & Grains",
+  "pulses-lentils": "Pulses & Lentils",
+  "spices": "Spices",
+  "oils-ghee": "Oils & Ghee",
+  "honey-sweeteners": "Honey & Sweeteners",
+  "dry-fruits": "Dry Fruits",
+  "flour-atta": "Flour & Atta",
+  "organic-snacks": "Organic Snacks",
 };
 
 const Category = () => {
