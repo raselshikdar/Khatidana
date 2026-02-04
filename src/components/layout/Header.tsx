@@ -285,7 +285,7 @@ export const Header = () => {
               className="md:hidden overflow-hidden"
             >
               <form 
-                className="px-4 pb-3"
+                className="px-4 pt-3 pb-4"
                 onSubmit={handleMobileSearch}
               >
                 <div className="relative flex gap-2">

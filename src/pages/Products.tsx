@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronRight, SlidersHorizontal, RefreshCw } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/seo/SEOHead";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -59,6 +60,11 @@ const Products = () => {
 
   return (
     <Layout className="container py-6">
+      <SEOHead 
+        title="All Products"
+        description="Browse our complete collection of organic grains, rice, spices, honey and more. Premium quality organic food from trusted farmers."
+        url="https://khatidana.lovable.app/products"
+      />
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
         <button onClick={() => navigate("/")} className="hover:text-primary">

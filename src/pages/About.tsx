@@ -1,9 +1,15 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/seo/SEOHead";
 import { Users, Target, Award, Heart } from "lucide-react";
 
 const About = () => {
   return (
     <Layout className="container py-8">
+      <SEOHead 
+        title="About Us"
+        description="Learn about Khatidana (খাঁটিদানা), Bangladesh's premium destination for organic foods and grains. Pure, authentic, and naturally sourced products."
+        url="https://khatidana.lovable.app/about"
+      />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-display font-bold mb-2 text-foreground">
           About <span className="text-primary">Khatidana</span>

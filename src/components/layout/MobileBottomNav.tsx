@@ -27,21 +27,21 @@ export const MobileBottomNav = () => {
               key={item.label}
               onClick={() => navigate(item.path)}
               className={cn(
-                "flex flex-col items-center justify-center gap-1 flex-1 h-full transition-colors relative",
-                isActive ? "text-primary" : "text-muted-foreground"
+                "flex flex-col items-center justify-center gap-1 flex-1 h-full transition-colors",
+                isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
               )}
               whileTap={{ scale: 0.9 }}
             >
-              {isActive && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-12 h-1 bg-primary rounded-full"
-                  initial={false}
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                />
-              )}
-              <item.icon className={cn("h-5 w-5", isActive && "text-primary")} />
-              <span className="text-xs font-medium">{item.label}</span>
+              <item.icon className={cn(
+                "h-5 w-5 transition-colors",
+                isActive ? "text-primary" : "text-muted-foreground"
+              )} />
+              <span className={cn(
+                "text-xs font-medium transition-colors",
+                isActive ? "text-primary" : "text-muted-foreground"
+              )}>
+                {item.label}
+              </span>
             </motion.button>
           );
         })}
