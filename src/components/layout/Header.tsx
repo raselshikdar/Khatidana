@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, ShoppingCart, User, Menu, Heart, MapPin, ChevronDown, LogOut, Package, Shield } from "lucide-react";
+import { Search, ShoppingCart, User, Menu, Heart, Leaf, ChevronDown, LogOut, Package, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -16,16 +16,17 @@ import {
 import { useCart } from "@/hooks/useCart";
 import { useAuth } from "@/hooks/useAuth";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { motion } from "framer-motion";
 
 const categories = [
-  { name: "Electronics", slug: "electronics" },
-  { name: "Fashion", slug: "fashion" },
-  { name: "Home & Living", slug: "home-living" },
-  { name: "Beauty", slug: "beauty" },
-  { name: "Sports", slug: "sports" },
-  { name: "Groceries", slug: "groceries" },
-  { name: "Toys", slug: "toys" },
-  { name: "Automotive", slug: "automotive" },
+  { name: "Rice & Grains", nameBn: "চাল ও শস্য", slug: "rice-grains" },
+  { name: "Pulses & Lentils", nameBn: "ডাল", slug: "pulses-lentils" },
+  { name: "Spices", nameBn: "মসলা", slug: "spices" },
+  { name: "Oils & Ghee", nameBn: "তেল ও ঘি", slug: "oils-ghee" },
+  { name: "Honey & Sweeteners", nameBn: "মধু", slug: "honey-sweeteners" },
+  { name: "Dry Fruits", nameBn: "শুকনো ফল", slug: "dry-fruits" },
+  { name: "Flour & Atta", nameBn: "আটা ও ময়দা", slug: "flour-atta" },
+  { name: "Organic Snacks", nameBn: "জৈব স্ন্যাকস", slug: "organic-snacks" },
 ];
 
 export const Header = () => {
@@ -44,15 +45,14 @@ export const Header = () => {
     <header className="sticky top-0 z-50 w-full">
       {/* Top bar */}
       <div className="gradient-primary text-primary-foreground">
-        <div className="container flex h-10 items-center justify-between text-sm">
+        <div className="container flex h-9 items-center justify-between text-sm">
           <div className="flex items-center gap-2">
-            <MapPin className="h-4 w-4" />
-            <span className="hidden sm:inline">Deliver to Dhaka</span>
-            <ChevronDown className="h-3 w-3" />
+            <Leaf className="h-4 w-4" />
+            <span className="hidden sm:inline font-medium">100% Organic & Natural</span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="hidden md:inline">🔥 Free Delivery on orders over ৳500</span>
-            <span>Download App</span>
+            <span className="hidden md:inline">🌾 Free Delivery on orders over ৳1000</span>
+            <span className="text-accent font-semibold">খাঁটিদানা</span>
           </div>
         </div>
       </div>
@@ -69,9 +69,8 @@ export const Header = () => {
             </SheetTrigger>
             <SheetContent side="left" className="w-72 bg-card">
               <div className="flex flex-col gap-4 pt-8">
-                
                 <div className="border-t pt-4">
-                  <h2 className="text-lg font-bold mb-2">Categories</h2>
+                  <h2 className="text-lg font-bold mb-2 font-display">Categories</h2>
                   {categories.map((cat) => (
                     <Button 
                       key={cat.slug} 
@@ -79,7 +78,8 @@ export const Header = () => {
                       className="w-full justify-start"
                       onClick={() => navigate(`/category/${cat.slug}`)}
                     >
-                      {cat.name}
+                      <span>{cat.name}</span>
+                      <span className="ml-auto text-xs text-muted-foreground font-bengali">{cat.nameBn}</span>
                     </Button>
                   ))}
                 </div>
@@ -112,10 +112,19 @@ export const Header = () => {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <img src="/logo.png" alt="Bongshai" className="h-10 w-10 rounded-lg object-contain" />
-            <span className="hidden text-xl font-bold text-foreground sm:inline">
-              Bong<span className="text-primary">shai</span>
-            </span>
+            <motion.div 
+              className="h-10 w-10 rounded-full gradient-primary flex items-center justify-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Leaf className="h-6 w-6 text-primary-foreground" />
+            </motion.div>
+            <div className="hidden sm:flex flex-col">
+              <span className="text-lg font-display font-bold text-foreground leading-tight">
+                Khatidana
+              </span>
+              <span className="text-xs text-accent font-bengali font-semibold -mt-0.5">খাঁটিদানা</span>
+            </div>
           </Link>
 
           {/* Search bar - Responsive */}
@@ -132,46 +141,49 @@ export const Header = () => {
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search for products..."
-                className="pl-10 h-10 bg-muted border-0 focus-visible:ring-primary"
+                placeholder="Search organic products..."
+                className="pl-10 h-11 bg-muted/50 border-border focus-visible:ring-primary rounded-full"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <Button type="submit" className="h-10 px-4 gradient-primary hover:opacity-90 transition-opacity shrink-0">
+            <Button type="submit" className="h-11 px-6 gradient-primary hover:opacity-90 transition-opacity shrink-0 rounded-full">
               <Search className="h-4 w-4" />
             </Button>
           </form>
 
           {/* Actions - Always visible on right */}
           <div className="flex items-center gap-1 shrink-0 ml-auto">
-            {/* Theme Toggle - Left of Wishlist */}
+            {/* Theme Toggle */}
             <ThemeToggle />
             
-            {/* Wishlist - visible on all sizes */}
+            {/* Wishlist */}
             <Button 
               variant="ghost" 
               size="icon" 
               onClick={() => navigate("/wishlist")}
+              className="hidden md:flex"
             >
               <Heart className="h-5 w-5" />
             </Button>
             
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="relative"
-              onClick={() => navigate("/cart")}
-            >
-              <ShoppingCart className="h-5 w-5" />
-              {totalItems > 0 && (
-                <Badge 
-                  className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center gradient-flash text-xs animate-cart-bounce"
-                >
-                  {totalItems}
-                </Badge>
-              )}
-            </Button>
+            <motion.div whileTap={{ scale: 0.9 }}>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="relative"
+                onClick={() => navigate("/cart")}
+              >
+                <ShoppingCart className="h-5 w-5" />
+                {totalItems > 0 && (
+                  <Badge 
+                    className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center bg-accent text-accent-foreground text-xs"
+                  >
+                    {totalItems}
+                  </Badge>
+                )}
+              </Button>
+            </motion.div>
 
             {user ? (
               <DropdownMenu>
@@ -184,7 +196,7 @@ export const Header = () => {
                     </div>
                     <span className="max-w-20 truncate hidden lg:inline">{profile?.name || "Account"}</span>
                     {isAdmin && (
-                      <Badge variant="destructive" className="text-xs px-1.5 py-0.5 hidden lg:flex">
+                      <Badge className="text-xs px-1.5 py-0.5 hidden lg:flex bg-accent text-accent-foreground">
                         ADMIN
                       </Badge>
                     )}
@@ -197,7 +209,7 @@ export const Header = () => {
                       <div className="flex items-center gap-2">
                         <span className="font-medium">{profile?.name || "User"}</span>
                         {isAdmin && (
-                          <Badge variant="destructive" className="text-xs px-1.5 py-0">
+                          <Badge className="text-xs px-1.5 py-0 bg-accent text-accent-foreground">
                             ADMIN
                           </Badge>
                         )}
@@ -240,16 +252,6 @@ export const Header = () => {
                 <span className="hidden lg:inline">Login</span>
               </Button>
             )}
-
-            {/* Mobile user button */}
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="md:hidden"
-              onClick={() => navigate(user ? "/profile" : "/auth")}
-            >
-              <User className="h-5 w-5" />
-            </Button>
           </div>
         </div>
         
@@ -268,13 +270,13 @@ export const Header = () => {
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search for products..."
-                className="pl-10 h-10 bg-muted border-0 focus-visible:ring-primary"
+                placeholder="Search organic products..."
+                className="pl-10 h-10 bg-muted/50 border-0 focus-visible:ring-primary rounded-full"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <Button type="submit" className="h-10 px-3 gradient-primary hover:opacity-90 transition-opacity shrink-0">
+            <Button type="submit" className="h-10 px-4 gradient-primary hover:opacity-90 transition-opacity shrink-0 rounded-full">
               <Search className="h-4 w-4" />
             </Button>
           </div>
@@ -284,7 +286,7 @@ export const Header = () => {
       {/* Categories bar - Desktop */}
       <nav className="hidden lg:block border-b bg-card/80 backdrop-blur-sm">
         <div className="container">
-          <div className="flex items-center gap-6 h-10 overflow-x-auto scrollbar-hide">
+          <div className="flex items-center gap-8 h-11 overflow-x-auto scrollbar-hide">
             {categories.map((cat) => (
               <button
                 key={cat.slug}

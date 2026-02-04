@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/hooks/useCart";
 import { useWishlist } from "@/hooks/useWishlist";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface ProductCardProps {
   id: string;
@@ -56,9 +57,11 @@ export const ProductCard = ({
   };
 
   return (
-    <div 
-      className="group relative bg-card rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden cursor-pointer"
+    <motion.div 
+      className="group relative bg-card rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden cursor-pointer border border-border"
       onClick={() => navigate(`/product/${id}`)}
+      whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.98 }}
     >
       {/* Image container */}
       <div className="relative aspect-square overflow-hidden bg-muted">
@@ -66,7 +69,7 @@ export const ProductCard = ({
           src={image}
           alt={name}
           loading="lazy"
-          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         
         {/* Badges */}
@@ -74,30 +77,35 @@ export const ProductCard = ({
           {discount > 0 && (
             <Badge className={cn(
               "text-xs font-bold",
-              isFlashSale ? "gradient-flash" : "bg-destructive"
+              isFlashSale ? "bg-flash text-flash-foreground" : "bg-destructive text-destructive-foreground"
             )}>
               -{discount}%
             </Badge>
           )}
           {badge && (
-            <Badge variant="secondary" className="text-xs">
+            <Badge className="text-xs bg-accent text-accent-foreground">
               {badge}
             </Badge>
           )}
         </div>
 
         {/* Wishlist button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className={cn(
-            "absolute top-2 right-2 h-8 w-8 rounded-full bg-card/80 backdrop-blur-sm hover:bg-card",
-            isWishlisted && "text-destructive"
-          )}
-          onClick={handleWishlist}
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
-          <Heart className={cn("h-4 w-4", isWishlisted && "fill-current")} />
-        </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className={cn(
+              "absolute top-2 right-2 h-8 w-8 rounded-full bg-card/90 backdrop-blur-sm hover:bg-card shadow-sm",
+              isWishlisted && "text-destructive"
+            )}
+            onClick={handleWishlist}
+          >
+            <Heart className={cn("h-4 w-4", isWishlisted && "fill-current")} />
+          </Button>
+        </motion.div>
 
         {/* Quick add overlay */}
         <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -117,7 +125,7 @@ export const ProductCard = ({
       {/* Content */}
       <div className="p-3">
         {/* Title */}
-        <h3 className="text-sm font-medium text-foreground line-clamp-2 min-h-[2.5rem] mb-1">
+        <h3 className="text-sm font-medium text-foreground line-clamp-2 min-h-[2.5rem] mb-1 group-hover:text-primary transition-colors">
           {name}
         </h3>
         {nameBn && (
@@ -130,7 +138,7 @@ export const ProductCard = ({
         <div className="flex items-center gap-1 mb-2">
           <div className="flex items-center gap-0.5">
             <Star className="h-3 w-3 fill-accent text-accent" />
-            <span className="text-xs font-medium">{rating}</span>
+            <span className="text-xs font-medium">{rating.toFixed(1)}</span>
           </div>
           {reviews > 0 && (
             <span className="text-xs text-muted-foreground">({reviews})</span>
@@ -147,6 +155,6 @@ export const ProductCard = ({
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

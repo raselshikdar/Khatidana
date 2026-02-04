@@ -20,6 +20,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'Hind Siliguri', 'system-ui', 'sans-serif'],
         bengali: ['Hind Siliguri', 'Noto Sans Bengali', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -100,6 +101,10 @@ export default {
           from: { opacity: "0" },
           to: { opacity: "1" },
         },
+        "fade-in-up": {
+          from: { opacity: "0", transform: "translateY(20px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
         "slide-in-right": {
           from: { transform: "translateX(100%)" },
           to: { transform: "translateX(0)" },
@@ -112,6 +117,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.3s ease-out",
+        "fade-in-up": "fade-in-up 0.4s ease-out",
         "slide-in-right": "slide-in-right 0.3s ease-out",
       },
     },
