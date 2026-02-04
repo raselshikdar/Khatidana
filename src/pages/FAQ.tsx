@@ -1,7 +1,4 @@
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
-import { BackToTop } from "@/components/ui/BackToTop";
+import { Layout } from "@/components/layout/Layout";
 import {
   Accordion,
   AccordionContent,
@@ -19,7 +16,7 @@ const faqs = [
       },
       {
         q: "What are the shipping charges?",
-        a: "We offer free shipping on orders over ৳2,500. For orders below this amount, shipping charges are ৳60 inside Dhaka and ৳120 for outside Dhaka.",
+        a: "We offer free shipping on orders over ৳1,000. For orders below this amount, shipping charges are ৳60 inside Dhaka and ৳120 for outside Dhaka.",
       },
       {
         q: "How long does delivery take?",
@@ -82,64 +79,56 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <Header />
-      
-      <main className="flex-1 container py-8">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">
-            Frequently Asked <span className="text-primary">Questions</span>
-          </h1>
-          <p className="text-muted-foreground mb-8">
-            Find answers to common questions about shopping at Bongshai.
-          </p>
-          
-          {faqs.map((section, idx) => (
-            <div key={idx} className="mb-8">
-              <h2 className="text-xl font-semibold mb-4 text-foreground flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-primary"></span>
-                {section.category}
-              </h2>
-              <Accordion type="single" collapsible className="space-y-2">
-                {section.questions.map((faq, faqIdx) => (
-                  <AccordionItem
-                    key={faqIdx}
-                    value={`${idx}-${faqIdx}`}
-                    className="bg-card border border-border rounded-lg px-4"
-                  >
-                    <AccordionTrigger className="text-left text-foreground hover:text-primary">
-                      {faq.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      {faq.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          ))}
-          
-          <div className="mt-10 p-6 bg-primary/10 rounded-xl text-center">
-            <h3 className="text-lg font-semibold text-foreground mb-2">
-              Still have questions?
-            </h3>
-            <p className="text-muted-foreground mb-4">
-              Our customer support team is here to help!
-            </p>
-            <a
-              href="/contact"
-              className="inline-block px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              Contact Us
-            </a>
+    <Layout className="container py-8">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">
+          Frequently Asked <span className="text-primary">Questions</span>
+        </h1>
+        <p className="text-muted-foreground mb-8">
+          Find answers to common questions about shopping at Khatidana.
+        </p>
+        
+        {faqs.map((section, idx) => (
+          <div key={idx} className="mb-8">
+            <h2 className="text-xl font-semibold mb-4 text-foreground flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary"></span>
+              {section.category}
+            </h2>
+            <Accordion type="single" collapsible className="space-y-2">
+              {section.questions.map((faq, faqIdx) => (
+                <AccordionItem
+                  key={faqIdx}
+                  value={`${idx}-${faqIdx}`}
+                  className="bg-card border border-border rounded-lg px-4"
+                >
+                  <AccordionTrigger className="text-left text-foreground hover:text-primary">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
+        ))}
+        
+        <div className="mt-10 p-6 bg-primary/10 rounded-xl text-center">
+          <h3 className="text-lg font-semibold text-foreground mb-2">
+            Still have questions?
+          </h3>
+          <p className="text-muted-foreground mb-4">
+            Our customer support team is here to help!
+          </p>
+          <a
+            href="/contact"
+            className="inline-block px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            Contact Us
+          </a>
         </div>
-      </main>
-      
-      <Footer />
-      <WhatsAppButton />
-      <BackToTop />
-    </div>
+      </div>
+    </Layout>
   );
 };
 
