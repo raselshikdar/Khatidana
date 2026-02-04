@@ -1,73 +1,81 @@
-# Welcome to your Lovable project
+# 🌿 Khatidana (খাঁটিদানা) - Premium Organic Food E-commerce
 
-## Project info
+Khatidana is a modern, full-stack, premium e-commerce platform dedicated to providing pure and organic grains, honey, and oils to the Bangladeshi market. Built with a focus on health, purity, and a seamless user experience, Khatidana combines a high-end "Flipkart-inspired" interface with robust backend logic.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Live Demo
+**Website:** [https://khatidana.lovable.app](https://khatidana.lovable.app)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- **Premium Organic UI**: Compact, high-end design with a "Forest Green & Gold" theme, featuring both Light and Dark mode toggles.
+- **Mobile-First Experience**: Optimized mobile navigation featuring a persistent **Bottom Navigation Bar** for an app-like feel on every page.
+- **Advanced Search**: Expandable mobile search bar with smooth animations and desktop-integrated filtering.
+- **User Authentication**: Secure signup/login with profile management and persistent shopping carts.
+- **Wishlist Management**: Dedicated wishlist page accessible from both mobile and desktop headers.
+- **Dynamic Inventory**: Real-time product syncing from the database with automated stock status updates.
+- **Admin Dashboard**: A fully controlled, secure management suite for:
+  - **Product CRUD**: Add, edit, or remove organic products and grains.
+  - **Order Tracking**: Manage order statuses from 'Pending' to 'Delivered'.
+  - **Analytics**: View sales overview and customer insights.
+- **SEO Optimized**: Fully production-ready with meta tags, Open Graph (OG) support for social sharing, and search engine friendly structure.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tech Stack
 
-**Use your preferred IDE**
+- **Platform**: [Lovable.dev](https://lovable.dev/)
+- **Frontend**: [React.js](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
+- **Backend/Database**: [Supabase](https://supabase.com/) (PostgreSQL + Real-time Sync)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ⚙️ Environment Variables
 
-Follow these steps:
+To run this project, you will need to add the following environment variables to your `.env` file or GitHub Secrets:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_SUPABASE_PROJECT_ID=your_project_id
+SSLCOMMERZ_STORE_ID=your_sandbox_id
+SSLCOMMERZ_STORE_PASSWORD=your_sandbox_password
 ```
 
-**Edit a file directly in GitHub**
+## 📖 Installation & Setup
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+ * Clone the repository:
 
-**Use GitHub Codespaces**
+ ```bash
+ git clone https://github.com/raselshikdar/khatidana.git
+ cd bongshai
+ ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+ * Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## What technologies are used for this project?
+ * Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-This project is built with:
+ * Build for production:
+   ```bash
+   npm run build
+   ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+🛡️ Security
+ * Row Level Security (RLS): All Supabase tables are protected by strict RLS policies ensuring users can only access their own data.
+ * Environment Protection: Sensitive keys (Service Role Keys) are stored in secure backend environments and never exposed to the frontend.
 
-## How can I deploy this project?
+***
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+© 2026 Bongshai. Built with ❤️ for Bangladesh.
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+***
